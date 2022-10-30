@@ -7,33 +7,38 @@
     <title>All my Links</title>
   </head>
   <body>
-    <div>
-      <h1>Social Media</h1>
-      <h3>Linkedin</h3>
-      <a href="https://github.com/Jorge-Neves" target="_blank"><h3>Github</h3></a>
-      <h3>Gitlab</h3>
-      <a href=" https://www.figma.com/@PauloJSantos" target="_blank"><h3>Figma</h3></a>
+    <div id="app">
+      <div>
+        <button class="selectTab" data-tab="ironhack">Ironhack</button>
+        <button class="selectTab" data-tab="codeAcademy">Code Academy</button>
+        <button class="selectTab" data-tab="W3Schools">W3schools</button>
+        <button class="selectTab" data-tab="Front-End">Front-End</button>
+        <button class="selectTab" data-tab="Back-End">Back-End</button>
+      </div>
+      <div class="tab" id="ironhack">Ironhack</div>
+      <div class="tab" id="codeAcademy">Code Academy</div>
+      <div class="tab" id="W3Schools">W3schools</div>
+      <div class="tab" id="Front-End">Front-End</div>
+      <div class="tab" id="Back-End">Back-End</div>
     </div>
-    <div>
-      <h1>Problem Solving</h1>
-      <a href="https://leetcode.com/Jorge-Neves/" target="_blank"><h3>LeetCode</h3></a>
-      <a href="https://www.codewars.com/users/Jorge-Neves/" target="_blank"><h3>CodeWars</h3></a>
-      <h3>chess.com</h3><a>https://www.chess.com/member/paulonascimentosantos</a>
-    </div>
-    <div>
-      <h1>Online Learning</h1>
-      <a href="https://www.freecodecamp.org/paulojorgesantos" target="_blank">
-        <h3>freecodecamp.org</h3>
-      </a>
-      <h3>w3schools</h3>
-    </div>
-    <div>
-      <h1>Learning Apps</h1>
-      <h3>Duolingo</h3>
-      <h3>Brilliant.org</h3>
-      <a href="https://brilliant.org/profile/paulo-x1z5wh/" target="_blank">
-        <h3>Brilliant</h3>
-      </a>
-    </div>
+    <script>
+      const selectTab = (event) => {
+        const tab = event.target.dataset.tab;
+        const element = document.querySelector('#' + tab);
+        showSelected(element);
+      };
+
+      const showSelected = (selected) => {
+        document.querySelectorAll('.tab').forEach((tab) => {
+          tab.style.display = 'none';
+        });
+
+        selected.style.display = 'block';
+      };
+
+      document.querySelectorAll('.selectTab').forEach((tabSelectButton) => {
+        tabSelectButton.addEventListener('click', selectTab);
+      });
+    </script>
   </body>
 </html>
